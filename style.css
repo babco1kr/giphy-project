@@ -2,3 +2,26 @@ body {
     background-color: lightblue;
 }
 
+#gifHoldingArea {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+header {
+    background-color: #6c757d;
+    color: #ffffff;
+}
+
+.container {
+    width: 100%;
+}
+
+@media (min-width: 1200px) {
+.container {
+    max-width: 100%;
+}
+}
+
+.gif, h3 {
+    margin-left: 20px;
+}
