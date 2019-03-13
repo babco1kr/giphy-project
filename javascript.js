@@ -2,6 +2,7 @@
 var topics = ["World of Warcraft", "Overwatch", "League of Legends", "Dota 2", "Fortnite", "Smashbros", "Mariokart", "Runescape", "Pokemon", "Call of Duty", "Counter Strike Go"];
 
 $(document).ready(function () {
+    // Populates the basic buttons to the page
     function gameTitles () {
         $("#buttonArea").empty();
         for (i = 0; i < topics.length; i++) {
@@ -12,6 +13,7 @@ $(document).ready(function () {
     }
     gameTitles();
 
+    // Button to add new button to the screen to choose from
     $("#addGame").on("click", function(event) {
         event.preventDefault();
         var game = $("#game-input").val().trim();
@@ -21,11 +23,13 @@ $(document).ready(function () {
 
     $(document).on("click", ".game", populateGifs);
 
+    // Start of the page
     function populateGifs () {
         $("#gifHoldingArea").empty();
         var game = $(this).attr("title");
         var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + game + "&api_key=dc6zaTOxFJmzC&limit=10"
-    
+        
+    // API call
     $.ajax({
         url: queryURL,
         method: "GET"
@@ -45,7 +49,8 @@ $(document).ready(function () {
     })
         
     }
-
+    
+    // Function that populates gifs on button click
     $("#gifHoldingArea").on("click", ".gif", function() {
         var motion = $(this).attr("motionstatus");
         console.log(motion);
